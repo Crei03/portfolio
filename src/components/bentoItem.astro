@@ -1,0 +1,43 @@
+---
+interface Props {
+    class?: string;
+    title: string;
+    subtitle?: string;
+}
+const { title, subtitle } = Astro.props;
+---
+
+<article
+  class={` ${Astro.props.class} col-span-5 relative rounded-xl backdrop-blur-md border border-emerald-500/60 shadow-inner shadow-white/20 overflow-hidden group`}
+>
+  <!-- Fondo degradado en verde oscuro -->
+  <div
+    class="absolute bottom-0 top-0 left-0 right-0 z-10 h-full w-full
+    bg-gradient-to-b from-transparent from-40% via-emerald-900/50 to-emerald-900/80"
+  >
+  </div>
+
+  <!-- Imagen de fondo -->
+  <div class="absolute bottom-0 top-0 left-0 right-0 z-0">
+    <slot name="image" />
+  </div>
+
+  <!-- Contenedor de contenido -->
+  <div
+    class="relative z-20 flex h-full select-none flex-col justify-end gap-1 p-2 text-base md:text-lg md:p-6"
+  >
+    <h2 class="mb-2 md:mb-4 text-balance text-xl md:text-3xl font-semibold uppercase text-white">
+      {title}
+    </h2>
+
+    {
+      subtitle && (
+        <h3 class="-mt-2 md:-mt-4 mb-2 md:mb-4 text-xl md:text-3xl font-semibold text-white">
+          {subtitle}
+        </h3>
+      )
+    }
+
+    <slot name="content" />
+  </div>
+</article>

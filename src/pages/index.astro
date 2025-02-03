@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Bento from "../components/bento.astro";
+import Experience from "../components/experience.astro";
+import Carousel from "../components/carousel";
+import slides from "../data/proyectos.json";
+---
+
+<Layout title="Portafolio de Carlos">
+
+  <main>
+    <Carousel slides={slides} client:load/>
+    <Experience/>
+    <Bento/>
+  </main>
+</Layout>

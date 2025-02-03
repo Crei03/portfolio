@@ -1,0 +1,175 @@
+---
+import BentoItem from "./bentoItem.astro";
+---
+
+<section
+  class={`
+    w-full max-w-[1400px]
+    grid lg:grid-cols-10 auto-rows-[26rem] gap-4
+    mx-auto p-4 sm:p-6 md:p-12 lg:p-20
+  `}
+>
+  <BentoItem
+    class="col-span-10 lg:col-span-5"
+    title="+2 Años de Experiencia"
+  >
+    <div
+      slot="image"
+      class="background transition-transform absolute bottom-0 left-0 top-0
+  -z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/yo.webp');"
+      id="sobre-mi"
+    >
+    </div>
+    <span slot="content" class="text-white text-base sm:text-lg">
+      He trabajado con tecnologías como
+      <span class="text-emerald-400 font-semibold">JavaScript</span>,
+      <span class="text-emerald-400 font-semibold">Python</span>,
+      <span class="text-emerald-400 font-semibold">React</span> y
+      <span class="text-emerald-400 font-semibold">Java</span>
+    </span>
+  </BentoItem>
+
+  <BentoItem class="col-span-10 lg:col-span-5" title="Sobre mí">
+    <div slot="content" class="flex flex-col gap-4 text-white">
+      <p class="text-base sm:text-lg">
+        Mi nombre es Carlos Reina, estudiante de la
+        <span
+          class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
+          >Universidad Tecnológica de Panamá</span
+        >
+        y miembro activo de
+        <span
+          class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
+          >Python Panamá</span
+        >.
+      </p>
+
+      <div class="flex items-center gap-2 text-base sm:text-lg">
+        <p>
+          Actualmente desarrollo
+          <span
+            class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
+            >Plenty</span
+          >, una solución innovadora para la organización de eventos.
+        </p>
+      </div>
+
+      <div class="flex items-start gap-2 text-base sm:text-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5 mt-1 text-emerald-400"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p>
+          Me especializo en crear productos que sean:
+          <span
+            class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors block mt-2 ml-4"
+          >
+            ⚡ Intuitivos ⚡ Eficientes ⚡ Agradables
+          </span>
+        </p>
+      </div>
+    </div>
+  </BentoItem>
+
+  <BentoItem class="col-span-10 lg:col-span-10" title="contáctame">
+    <div
+      slot="image"
+      class="background transition-transform absolute bottom-0 left-0 top-0
+    -z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/fondo.webp');"
+      id="contactame"
+    >
+    </div>
+
+    <p slot="content" class="text-base sm:text-lg lg:text-xl text-white mb-6">
+      ¿Tienes una idea interesante? ¡Trabajemos juntos! Contáctame a través de
+      cualquiera de estos medios.
+    </p>
+
+    <div slot="content" class="flex gap-4 sm:gap-6 mt-4">
+      <a
+        href="https://www.linkedin.com/in/crei03"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white hover:text-emerald-400 transition-colors flex flex-col items-center"
+        aria-label="LinkedIn"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8 sm:w-10 sm:h-10"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M22.23 0H1.77C.792 0 0 .77 0 1.721V22.28C0 23.23.792 24 1.77 24h20.46c.978 0 1.77-.77 1.77-1.721V1.721C24 .77 23.208 0 22.23 0zM7.12 20.452H3.55V9.454h3.57v10.998zM5.35 7.833c-1.146 0-2.07-.92-2.07-2.06 0-1.142.924-2.06 2.07-2.06s2.07.918 2.07 2.06c0 1.14-.924 2.06-2.07 2.06zM20.452 20.452h-3.57V14.84c0-1.335-.027-3.056-1.86-3.056-1.861 0-2.145 1.45-2.145 2.953v5.715h-3.57V9.454h3.43v1.502h.05c.48-.9 1.653-1.85 3.4-1.85 3.637 0 4.31 2.392 4.31 5.506v6.84z"
+          ></path>
+        </svg>
+        <span class="text-sm mt-2">LinkedIn</span>
+      </a>
+
+      <a
+        href="https://github.com/crei03"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white hover:text-emerald-400 transition-colors flex flex-col items-center"
+        aria-label="GitHub"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8 sm:w-10 sm:h-10"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.776.42-1.304.763-1.604-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.47-2.381 1.236-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.98-.399 3-.404 1.02.005 2.043.138 3 .404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.839 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.48 5.92.43.371.823 1.102.823 2.222 0 1.606-.014 2.896-.014 3.287 0 .321.217.694.825.576C20.565 22.092 24 17.593 24 12.297c0-6.627-5.373-12-12-12"
+          ></path>
+        </svg>
+        <span class="text-sm mt-2">GitHub</span>
+      </a>
+      <a
+        href="https://instagram.com/crei03"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white hover:text-emerald-400 transition-colors flex flex-col items-center"
+        aria-label="Instagram"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8 sm:w-10 sm:h-10"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        <span class="text-sm mt-2">Instagram</span>
+      </a>
+      <a
+        href="mailto:carlosreina2100@gmail.com"
+        class="text-white hover:text-emerald-400 transition-colors flex flex-col items-center"
+        aria-label="Email"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8 sm:w-10 sm:h-10"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M12 12.713l11.985-9.713H.015L12 12.713zm0 2.575L.015 4.853v14.294h23.97V4.853L12 15.288z"
+          ></path>
+        </svg>
+        <span class="text-sm mt-2">Email</span>
+      </a>
+    </div>
+  </BentoItem>
+</section>

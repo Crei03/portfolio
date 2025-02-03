@@ -1,0 +1,100 @@
+---
+import NavBarItem from "./navBar/navBarItem.astro";
+---
+
+<!-- Barra de navegación inicial -->
+<nav class="w-full bg-transparent hidden md:block" id="initial-navbar">
+  <div class="max-w-full overflow-x-auto">
+    <ul
+      class="flex flex-row justify-center items-center gap-4 md:gap-8 text-xs md:text-lg font-semibold text-white min-w-max px-4"
+    >
+      <li class="hover:text-emerald-400 transition-colors">
+        <a href="#inicio">
+          <img
+            class="w-8 h-8 md:w-12 md:h-12 text-emerald-500 animate-pulse hover:animate-none transition-all duration-300"
+            src="/CR.png"
+            alt="Inicio"
+          />
+        </a>
+      </li>
+      <li class="hover:text-emerald-400 transition-colors">
+        <NavBarItem section="#proyectos" title="Proyectos" />
+      </li>
+      <li class="hover:text-emerald-400 transition-colors">
+        <NavBarItem section="#experiencias" title= "Experiencias" />
+      </li>
+      <li class="hover:text-emerald-400 transition-colors">
+        <NavBarItem section="#sobre-mi" title= "Sobre mí" />
+      </li>
+      <li class="hover:text-emerald-400 transition-colors">
+        <NavBarItem section="#contactame" title= "Contactame" />
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Barra de navegación flotante -->
+<nav
+  class="fixed w-full bg-black/80 backdrop-blur-lg py-3 top-0 z-50 shadow-lg opacity-0 -translate-y-full transition-all duration-300 hidden md:block"
+  id="floating-navbar"
+>
+  <div class="max-w-full overflow-x-auto">
+    <ul
+      class="flex flex-row justify-center items-center gap-4 md:gap-8 text-xs md:text-lg font-semibold text-white min-w-max px-4"
+    >
+    <li class="hover:text-emerald-400 transition-colors">
+      <a href="#inicio">
+        <img
+          class="w-8 h-8 md:w-12 md:h-12 text-emerald-500 animate-pulse hover:animate-none transition-all duration-300"
+          src="/CR.png"
+          alt="Inicio"
+        />
+      </a>
+      <li class="hover:text-emerald-400 transition-colors">
+        <a href="#proyectos">Proyectos</a>
+      </li>
+      <li class="hover:text-emerald-400 transition-colors">
+        <a href="#experiencias">Experiencias</a>
+      </li>
+      <li class="hover:text-emerald-400 transition-colors">
+        <a href="#sobre-mi">Sobre mí</a>
+      </li>
+      <li class="hover:text-emerald-400 transition-colors">
+        <a href="#contactame">Contáctame</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const header = document.querySelector("header");
+  const initialNavbar = document.getElementById("initial-navbar");
+  const floatingNavbar = document.getElementById("floating-navbar");
+
+  window.addEventListener("scroll", () => {
+    if (header && initialNavbar) {
+      const headerBottom = header.offsetTop + header.offsetHeight;
+
+      if (window.scrollY > headerBottom) {
+        floatingNavbar?.classList.remove("-translate-y-full", "opacity-0");
+      } else {
+        floatingNavbar?.classList.add("-translate-y-full", "opacity-0");
+      }
+    }
+  });
+
+  // Agregar desplazamiento suave a los enlaces
+  document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (this: HTMLAnchorElement, e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetElement = targetId ? document.querySelector(targetId) : null;
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+</script>
