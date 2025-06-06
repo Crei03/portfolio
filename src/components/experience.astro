@@ -2,34 +2,42 @@
 import ExperienceItem from "./experienceItem.astro";
 const EXPERIENCE = [
   {
+    date: "Abril 2025",
+    title: "Full-Stack Developer",
+    company: "Universidad Tecnológica de Panamá",
+    description:
+      "Contribuí como desarrollador y gestor de la plataforma de registro y asistencia del evento, en la que incluimos un escáner QR para el registro de los participantes.",
+    link: "https://www.linkedin.com/posts/crei03_el-pasado-lunes-21-de-abril-la-facultad-activity-7321244449328541698-gjX0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbQ36kBmTWBZlgE1tLJ9DiPIYMxl9cBp64",
+  },
+  {
     date: "Octubre 2024",
-    title: "Pycon Panama 2024",
+    title: "Full-Stack Developer",
     company: "Pycon Panama",
     description:
-      "Desarrollé un software para el registro y asistencia de los participantes al evento.",
+      "Desarrollé un software para el registro y control de asistencia de los participantes del evento.",
     link: "https://www.linkedin.com/posts/crei03_python-panama-pyconpanama2024-activity-7253103434160033814-OD6r?utm_source=share&utm_medium=member_desktop",
   },
   {
     date: "Septiembre 2024",
-    title: "Semana de la Ingeniería",
+    title: "Full-Stack Developer",
     company: "Universidad Tecnológica de Panamá",
     description:
-      "Participé como desarrollador y gestor de la plataforma de registro y asistencia de la Semana de la Ingeniería.",
+      "Contribuí como desarrollador y gestor de la plataforma de registro y asistencia de la Semana de la Ingeniería.",
     link: "https://www.linkedin.com/posts/crei03_innovation-engineering-softwaredevelopment-activity-7246534286399410176-v4QT?utm_source=share&utm_medium=member_desktop",
   },
-  {
-    date: "Junio 2024",
-    title: "ICCA HACKATHON",
-    company: "FIEXPO, IEEE",
-    description:
-      "Participé en el primer hackathon de la ICCA, donde desarrollé una aplicación para la gestión de eventos en tiempo real. Ganamos el tercer lugar.",
-    link: "https://www.linkedin.com/posts/crei03_iccahackathon-innovacion-tecnologia-activity-7209887821006852096-lk8K?utm_source=share&utm_medium=member_desktop",
-  },
+  // {
+  //   date: "Junio 2024",
+  //   title: "ICCA HACKATHON",
+  //   company: "FIEXPO, IEEE",
+  //   description:
+  //     "Participé en el primer hackathon de la ICCA, donde desarrollé una aplicación para la gestión de eventos en tiempo real. Ganamos el tercer lugar.",
+  //   link: "https://www.linkedin.com/posts/crei03_iccahackathon-innovacion-tecnologia-activity-7209887821006852096-lk8K?utm_source=share&utm_medium=member_desktop",
+  // },
 ];
 ---
 
 <div class="flex flex-col items-center justify-center mt-8" id="experiencias">
-  <div class="flex flex-col items-center gap-4 mb-8 py-5" >
+  <div class="flex flex-col items-center gap-4 mb-8 py-5">
     <div class="hover:scale-110 transition duration-300">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +52,10 @@ const EXPERIENCE = [
     </div>
     <div class="text-center">
       <h1 class="text-5xl font-extrabold text-white">EXPERIENCIAS</h1>
-      <div class="h-1 w-32 bg-emerald-500 transition-colors duration-300 mt-2 mx-auto rounded-full"></div>
+      <div
+        class="h-1 w-32 bg-emerald-500 transition-colors duration-300 mt-2 mx-auto rounded-full"
+      >
+      </div>
     </div>
   </div>
 

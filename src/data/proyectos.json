@@ -4,14 +4,14 @@
       "descripcion": "Crear una página web donde los estudiantes pudieran registrarse para asistir a las conferencias mediante un formulario. Además, conocer las diferentes conferencias programadas durante la semana 📋.",
       "imageUrl": "/Form.jpg",
       "projectUrl": "https://conferencias-utp.vercel.app/register",
-      "tecnologias": ["React", "Node.js", "Supabase","Vercel", "GitHub", "Git"]
+      "tecnologias": ["React", "Node.js", "Supabase","Next.JS", "GitHub", "Git"]
     },
     {
       "titulo": "Escaneo para Pycon Panamá 2024",
       "descripcion": "El escáner que desarrollamos mostraba una tabla con el nombre, correo y cargo del asistente 📝. Al escanear el QR, se notificaba la asistencia y el contador de personas registradas se actualizaba según el día 👥.",
       "imageUrl": "/Scanner.png",
       "projectUrl": "https://www.linkedin.com/posts/crei03_python-panama-pyconpanama2024-activity-7253103434160033814-OD6r?utm_source=share&utm_medium=member_desktop",
-      "tecnologias": ["React", "Node.js", "Supabase","Vercel" ,"GitHub", "Git"]
+      "tecnologias": ["React", "Node.js", "Supabase","Next.JS" ,"GitHub", "Git"]
     },
     {
       "titulo": "Sistema de Desbloqueo por Reconocimiento Facial con Raspberry Pi",
@@ -19,5 +19,12 @@
       "imageUrl": "/Rpi4.webp",
       "projectUrl": "https://github.com/Crei03/Reconocimiento-Facial-RPi4", 
       "tecnologias": ["Python", "MTCNN", "Vosk"]
+    },
+    {
+      "titulo": "Sistema de Gestión de Empleados",
+      "descripcion": "Desarrollé un sistema de gestión de empleados que permite realizar CRUD's de empleados, departamentos y cargos. Además, permite realizar búsquedas y filtrados de empleados por activos o inactivos 👥💼.",
+      "imageUrl": "/FormAntro.png",
+      "projectUrl": "https://github.com/Crei03/FormAntro",
+      "tecnologias": ["PHP", "MySQL", "JavaScript", "Xampp", "Git", "GitHub"]
     }
   ]

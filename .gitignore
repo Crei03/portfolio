@@ -4,6 +4,8 @@ dist/
 # generated types
 .astro/
 
+pnpm-lock.yaml
+package.json
 # dependencies
 node_modules/
 
@@ -16,11 +18,3 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
-
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
-.idea/
-
-.vercel
