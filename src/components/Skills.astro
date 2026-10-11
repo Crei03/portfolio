@@ -1,0 +1,74 @@
+---
+const GROUPS = [
+  {
+    kanji: "開発",
+    title: "Desarrollo",
+    items: ["JavaScript", "Python", "Java", "PHP", "React", "Next.js", "Node.js", "Supabase", "MySQL", "Git / GitHub"],
+  },
+  {
+    kanji: "品質",
+    title: "QA / Testing",
+    items: ["Testing manual", "Pruebas automatizadas", "Casos de prueba", "Reporte de defectos", "Control de calidad"],
+  },
+  {
+    kanji: "連携",
+    title: "Integraciones",
+    items: ["APIs REST", "Integración de servicios", "Supabase", "Escáner QR", "MTCNN", "Vosk"],
+  },
+  {
+    kanji: "監査",
+    title: "Auditoría",
+    items: ["Revisión de código", "Control de versiones", "Documentación técnica", "Revisión de procesos"],
+  },
+];
+---
+
+<section id="habilidades" class="reveal mx-auto max-w-6xl px-4 py-20 md:px-8">
+  <div class="mb-8 flex items-start gap-4">
+    <span class="v-kanji" lang="ja" aria-hidden="true">品質</span>
+    <div>
+      <p class="eyebrow">Lo que hago</p>
+      <h2 class="section-title mt-2 text-3xl md:text-4xl">Habilidades</h2>
+    </div>
+  </div>
+
+  <p class="mb-14 max-w-2xl text-lg text-sumi-soft">
+    He trabajado con tecnologías como JavaScript, Python, React y Java. Me especializo en crear productos que sean
+    intuitivos, eficientes y agradables.
+  </p>
+
+  <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      GROUPS.map((group) => (
+        <div class="flex gap-4">
+          <span class="v-kanji text-base" lang="ja" aria-hidden="true">
+            {group.kanji}
+          </span>
+          <div>
+            <h3 class="font-mincho text-lg uppercase tracking-[0.15em]">{group.title}</h3>
+            <ul class="mt-4 space-y-2 text-sumi-soft">
+              {group.items.map((item) => (
+                <li class="skill">{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .skill {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .skill::before {
+    content: "";
+    flex-shrink: 0;
+    width: 12px;
+    height: 1px;
+    background: var(--sand);
+  }
+</style>

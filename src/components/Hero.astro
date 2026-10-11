@@ -1,0 +1,73 @@
+---
+import Decor from "./Decor.astro";
+import Enso from "./Enso.astro";
+
+const ROLES = ["Fullstack Developer", "QA Engineer", "Integrations", "Auditing"];
+---
+
+<section id="inicio" class="relative isolate mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-12 md:grid-cols-[1.2fr_1fr] md:px-8 md:pt-24">
+  <Decor variant="blob" tone="peach" class="absolute -left-24 -top-10 -z-10 w-72 md:w-96" />
+
+  <div id="sobre-mi">
+    <p class="eyebrow">Software Development &amp; Management</p>
+    <h1 class="section-title mt-4 text-5xl leading-tight sm:text-6xl lg:text-7xl">Carlos Reina</h1>
+    <p class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm uppercase tracking-[0.15em] text-sumi-soft">
+      {
+        ROLES.map((role, i) => (
+          <>
+            {i > 0 && <span class="text-vermilion" aria-hidden="true">●</span>}
+            <span>{role}</span>
+          </>
+        ))
+      }
+    </p>
+    <p class="mt-8 max-w-xl text-lg text-sumi-soft">
+      Estudiante de la Universidad Tecnológica de Panamá, miembro activo de Python Panamá y actualmente desarrollo
+      Plenty, una solución innovadora para la organización de eventos.
+    </p>
+    <p class="mt-3 text-sm text-muted">+2 años de experiencia</p>
+
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href="#proyectos" class="btn btn--filled">Ver proyectos</a>
+      <a href="#contacto" class="btn btn--outline">Contacto</a>
+    </div>
+  </div>
+
+  <div class="relative mx-auto grid w-64 place-items-center sm:w-80 md:w-full md:max-w-sm">
+    <Decor variant="sun" class="absolute -right-6 -top-10 w-40 sm:w-48 md:w-56" />
+    <Enso size={320} animate class="relative h-auto w-full" />
+  </div>
+</section>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  /* --btn-text on --btn is 4.66:1 (AA for normal text) in both themes. */
+  .btn--filled {
+    background: var(--btn);
+    color: var(--btn-text);
+  }
+  /* Fixed deep vermilion so hover keeps contrast in dark mode too (6.7:1). */
+  .btn--filled:hover {
+    background: #8e3220;
+  }
+  .btn--outline {
+    border: 1px solid var(--sand);
+    color: var(--sumi);
+  }
+  .btn--outline:hover {
+    border-color: var(--vermilion);
+    color: var(--vermilion-dark);
+  }
+</style>

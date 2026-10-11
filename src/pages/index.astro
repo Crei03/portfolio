@@ -1,16 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Bento from "../components/bento.astro";
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
 import Experience from "../components/experience.astro";
-import Carousel from "../components/carousel";
-import slides from "../data/proyectos.json";
+import Skills from "../components/Skills.astro";
+import Contact from "../components/Contact.astro";
+import Decor from "../components/Decor.astro";
 ---
 
 <Layout title="Portafolio de Carlos">
+  <main class="relative">
+    <!-- Side bamboo only where the margins are wide enough not to touch content. -->
+    <Decor variant="bamboo" class="absolute left-2 top-[110vh] hidden h-[36rem] w-14 xl:block" />
+    <Decor variant="bamboo" class="absolute right-2 top-[240vh] hidden h-[36rem] w-14 -scale-x-100 xl:block" />
 
-  <main>
-    <Carousel slides={slides} client:load/>
-    <Experience/>
-    <Bento/>
+    <Hero />
+    <Decor variant="stroke" class="mx-auto w-2/3 max-w-md" />
+    <Projects />
+    <Decor variant="stroke" class="mx-auto w-2/3 max-w-md" />
+    <Experience />
+    <Decor variant="stroke" class="mx-auto w-2/3 max-w-md" />
+    <Skills />
+    <Decor variant="stroke" class="mx-auto w-2/3 max-w-md" />
+    <Contact />
   </main>
 </Layout>
