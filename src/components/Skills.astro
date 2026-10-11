@@ -2,21 +2,42 @@
 const GROUPS = [
   {
     title: "Desarrollo",
-    items: ["JavaScript", "Python", "Java", "PHP", "React", "Next.js", "Node.js", "Supabase", "MySQL", "Git / GitHub"],
+    items: [
+      "Python, Java, PHP",
+      "JavaScript / TypeScript",
+      "React, Next.js, Node.js",
+      "MySQL, PostgreSQL",
+      "Microsoft SQL Server, SQLite",
+    ],
   },
   {
     title: "QA / Testing",
-    items: ["Testing manual", "Pruebas automatizadas", "Casos de prueba", "Reporte de defectos", "Control de calidad"],
+    items: [
+      "Corrección de errores en sistemas legacy",
+      "Estabilidad de plataformas",
+      "Scrum: sprints, planificación y retrospectivas",
+    ],
   },
   {
     title: "Integraciones",
-    items: ["APIs REST", "Integración de servicios", "Supabase", "Escáner QR", "MTCNN", "Vosk"],
+    items: [
+      "Git y GitHub",
+      "Pipelines CI/CD",
+      "Automatización de despliegues",
+      "Transferencia de funcionalidades entre repositorios",
+    ],
   },
   {
     title: "Auditoría",
-    items: ["Revisión de código", "Control de versiones", "Documentación técnica", "Revisión de procesos"],
+    items: [
+      "Análisis de sistemas: escalabilidad y mantenibilidad",
+      "Documentación técnica de procesos",
+      "Levantamiento de requerimientos con clientes",
+    ],
   },
 ];
+
+const SOFT_SKILLS = ["Liderazgo de equipos", "Comunicación asertiva", "Negociación técnica", "Resolución de problemas"];
 ---
 
 <section id="habilidades" class="reveal mx-auto max-w-6xl px-4 py-20 md:px-8">
@@ -26,8 +47,8 @@ const GROUPS = [
   </div>
 
   <p class="mb-14 max-w-2xl text-lg text-sumi-soft">
-    He trabajado con tecnologías como JavaScript, Python, React y Java. Me especializo en crear productos que sean
-    intuitivos, eficientes y agradables.
+    Construyo soluciones web y móviles de punta a punta: desde el levantamiento de requerimientos hasta el despliegue
+    automatizado.
   </p>
 
   <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -43,6 +64,13 @@ const GROUPS = [
         </div>
       ))
     }
+  </div>
+
+  <div class="mt-14 border-t border-sand pt-8">
+    <h3 class="eyebrow">Habilidades blandas</h3>
+    <ul class="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sumi-soft">
+      {SOFT_SKILLS.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
   </div>
 </section>
 
