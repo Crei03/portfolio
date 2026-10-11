@@ -1,7 +1,7 @@
 [
   {
     "titulo": "Novalog - WMS",
-    "descripcion": "Sistema de gestión de almacenes para La Casa del Médico que conecta las áreas de compras, ventas, bodega y gerencia, integrado con SAP Business One. Incluye una versión móvil para terminales portátiles (PDT) en bodega.",
+    "descripcion": "Sistema de gestión de almacenes para La Casa del Médico que conecta las áreas de compras, ventas, bodega y gerencia, integrado con SAP Business One. Incluye una versión móvil para portátiles (PDT) en bodega con vista de filiales.",
     "imageUrl": "/Novalog.webp",
     "tecnologias": [
       "PHP",
