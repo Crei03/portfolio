@@ -138,12 +138,19 @@ const { title } = Astro.props;
         letter-spacing: 0.25em;
         color: var(--sumi-soft);
       }
-      .v-kanji {
+      /* Purely decorative kanji (aria-hidden): large, faint, used at most a couple of times. */
+      .kanji-deco {
+        position: absolute;
+        z-index: -1;
         writing-mode: vertical-rl;
         font-family: "Shippori Mincho", serif;
-        font-size: 1.125rem;
-        letter-spacing: 0.3em;
+        font-size: clamp(3rem, 9vw, 6rem);
+        line-height: 1;
+        letter-spacing: 0.15em;
         color: var(--vermilion-dark);
+        opacity: 0.18;
+        pointer-events: none;
+        user-select: none;
       }
       .ink-link {
         color: var(--sumi);
