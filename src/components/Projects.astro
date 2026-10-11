@@ -7,6 +7,7 @@ const IMAGE_SIZES: Record<string, [number, number]> = {
   "/Scanner.png": [958, 916],
   "/Rpi4.webp": [3060, 3011],
   "/FormAntro.png": [2538, 1406],
+  "/Novalog.webp": [1855, 802],
 };
 
 const linkLabel = (url: string) =>
@@ -44,18 +45,22 @@ const linkLabel = (url: string) =>
                       <li class="tag">{tech}</li>
                     ))}
                   </ul>
-                  <a
-                    href={project.projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="ink-link mt-auto inline-flex items-center gap-2 self-start"
-                  >
-                    {linkLabel(project.projectUrl)}
-                    <span class="sr-only">de {project.titulo}</span>
-                    <svg class="line-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                      <path d="M7 17 17 7M8 7h9v9" />
-                    </svg>
-                  </a>
+                  {project.projectUrl ? (
+                    <a
+                      href={project.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="ink-link mt-auto inline-flex items-center gap-2 self-start"
+                    >
+                      {linkLabel(project.projectUrl)}
+                      <span class="sr-only">de {project.titulo}</span>
+                      <svg class="line-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                        <path d="M7 17 17 7M8 7h9v9" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <p class="mt-auto text-sm text-muted">Proyecto privado</p>
+                  )}
                 </div>
               </article>
             </div>
