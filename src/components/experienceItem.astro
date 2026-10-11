@@ -12,8 +12,8 @@ interface Props {
 const { title, company, description, achievements, kind, link, date } = Astro.props;
 ---
 
-<li class="relative pb-14 pl-10 last:pb-0">
-  <span class="timeline-dot" aria-hidden="true"></span>
+<li class="reveal-item relative pb-14 pl-10 last:pb-0">
+  <span class="timeline-dot" data-pop aria-hidden="true"></span>
   <p class="eyebrow">
     <time>{date}</time>
     {kind && <span class="kind">{kind}</span>}

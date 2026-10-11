@@ -54,7 +54,7 @@ const SOFT_SKILLS = ["Liderazgo de equipos", "Comunicación asertiva", "Negociac
   <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
     {
       GROUPS.map((group) => (
-        <div>
+        <div class="reveal-item">
           <h3 class="font-mincho text-lg uppercase tracking-[0.15em]">{group.title}</h3>
           <ul class="mt-4 space-y-2 text-sumi-soft">
             {group.items.map((item) => (
@@ -66,7 +66,7 @@ const SOFT_SKILLS = ["Liderazgo de equipos", "Comunicación asertiva", "Negociac
     }
   </div>
 
-  <div class="mt-14 border-t border-sand pt-8">
+  <div class="reveal-item mt-14 border-t border-sand pt-8">
     <h3 class="eyebrow">Habilidades blandas</h3>
     <ul class="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sumi-soft">
       {SOFT_SKILLS.map((skill) => <li class="skill">{skill}</li>)}

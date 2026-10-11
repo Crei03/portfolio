@@ -25,7 +25,7 @@ const linkLabel = (url: string) =>
         projects.map((project, i) => {
           const [width, height] = IMAGE_SIZES[project.imageUrl] ?? [1200, 800];
           return (
-            <div class="slide" role="group" aria-roledescription="slide" aria-label={`${i + 1} de ${projects.length}`}>
+            <div class="slide reveal-item" role="group" aria-roledescription="slide" aria-label={`${i + 1} de ${projects.length}`}>
               <article class="card">
                 <img
                   src={project.imageUrl}
