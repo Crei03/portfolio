@@ -1,0 +1,80 @@
+---
+interface Props {
+  size?: number;
+  letters?: boolean;
+  animate?: boolean;
+  class?: string;
+}
+
+const { size = 48, letters = true, animate = false, class: className } = Astro.props;
+// Filter ids must be unique per instance because several ensōs render on one page.
+const filterId = `ink-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<svg
+  viewBox="150 70 300 300"
+  width={size}
+  height={size}
+  role="img"
+  aria-label="Logo Carlos Reina"
+  class:list={["enso", { "enso--animate": animate }, className]}
+>
+  <defs>
+    <filter id={filterId}>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="9" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" />
+    </filter>
+  </defs>
+  <g filter={`url(#${filterId})`} fill="none" stroke="currentColor" stroke-linecap="round">
+    <path class="enso__ring" d="M395 136 A 130 130 0 1 1 340 101" stroke-width="22" opacity=".9" pathLength="1" />
+    <path class="enso__ring enso__ring--inner" d="M388 150 A 122 122 0 1 1 300 104" stroke-width="8" opacity=".4" pathLength="1" />
+  </g>
+  <circle class="enso__sun" cx="404" cy="104" r="24" opacity=".85" />
+  {
+    letters && (
+      <text
+        x="300"
+        y="252"
+        text-anchor="middle"
+        font-family="Shippori Mincho, serif"
+        font-weight="600"
+        font-size="78"
+        fill="currentColor"
+      >
+        CR
+      </text>
+    )
+  }
+</svg>
+
+<style>
+  .enso {
+    color: var(--sumi);
+    flex-shrink: 0;
+  }
+  .enso__sun {
+    fill: var(--vermilion);
+  }
+  /* Resting state is fully drawn, so disabling animation (reduced motion) keeps the logo visible. */
+  .enso--animate .enso__ring {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: enso-draw 1.8s cubic-bezier(0.65, 0, 0.35, 1) 0.2s backwards;
+  }
+  .enso--animate .enso__ring--inner {
+    animation-delay: 0.9s;
+  }
+  .enso--animate .enso__sun {
+    animation: enso-sun 0.8s ease-out 1.6s backwards;
+  }
+  @keyframes enso-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+  }
+  @keyframes enso-sun {
+    from {
+      opacity: 0;
+    }
+  }
+</style>

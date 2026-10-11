@@ -1,0 +1,125 @@
+---
+// Decorative ink & watercolor illustrations. All variants are aria-hidden inline SVG.
+interface Props {
+  variant: "paper" | "blob" | "sun" | "stroke" | "bamboo";
+  tone?: "ochre" | "peach";
+  class?: string;
+}
+
+const { variant, tone = "ochre", class: className } = Astro.props;
+const id = `decor-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+{
+  variant === "paper" && (
+    <svg class="decor-paper" aria-hidden="true" focusable="false">
+      <filter id={id}>
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+      <rect width="100%" height="100%" filter={`url(#${id})`} />
+    </svg>
+  )
+}
+
+{
+  variant === "blob" && (
+    <svg viewBox="0 0 200 200" class:list={["decor-blob", className]} aria-hidden="true" focusable="false">
+      <filter id={id} x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="4" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="22" />
+        <feGaussianBlur stdDeviation="2.5" />
+      </filter>
+      <path
+        filter={`url(#${id})`}
+        style={`fill: var(--${tone})`}
+        d="M44 52c22-30 74-38 106-16s38 72 14 104-78 44-110 22S22 82 44 52z"
+      />
+    </svg>
+  )
+}
+
+{
+  variant === "sun" && (
+    <svg viewBox="0 0 240 240" class:list={["decor-sun", className]} aria-hidden="true" focusable="false">
+      <filter id={id} x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="2" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="10" />
+        <feGaussianBlur stdDeviation="1.2" />
+      </filter>
+      <circle cx="120" cy="120" r="112" fill="none" stroke-width="1" style="stroke: var(--sand)" />
+      <circle cx="120" cy="120" r="98" fill="none" stroke-width="1" opacity=".7" style="stroke: var(--sand)" />
+      <circle cx="120" cy="120" r="78" filter={`url(#${id})`} opacity=".88" style="fill: var(--vermilion)" />
+    </svg>
+  )
+}
+
+{
+  variant === "stroke" && (
+    <div role="separator" class:list={["decor-stroke", className]}>
+      <svg viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <filter id={id}>
+          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="7" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="4" />
+        </filter>
+        <g filter={`url(#${id})`} style="fill: var(--sumi)">
+          <path d="M8 17c60-7 160-10 290-8s220 4 294 1c-70 6-170 9-300 8S70 18 8 17z" opacity=".75" />
+          <path d="M120 21c90 2 230 3 330 0-90 4-220 5-330 0z" opacity=".35" />
+        </g>
+      </svg>
+    </div>
+  )
+}
+
+{
+  variant === "bamboo" && (
+    <svg viewBox="0 0 120 640" class:list={["decor-bamboo", className]} aria-hidden="true" focusable="false">
+      <filter id={id}>
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="3" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="3" />
+      </filter>
+      <g filter={`url(#${id})`} fill="none" stroke-linecap="round" style="stroke: var(--sumi)">
+        <path d="M40 640V10" stroke-width="7" />
+        <path d="M78 640V150" stroke-width="5" opacity=".7" />
+        <g stroke-width="2.5">
+          <path d="M33 520h14M33 390h14M33 260h14M33 130h14" />
+          <path d="M73 540h10M73 430h10M73 320h10M73 210h10" opacity=".7" />
+        </g>
+      </g>
+      <g filter={`url(#${id})`} style="fill: var(--sumi)">
+        <path d="M44 130c18-14 42-22 70-24-22 10-44 20-70 24z" />
+        <path d="M44 136c14 2 34 12 52 28-22-8-38-14-52-28z" opacity=".8" />
+        <path d="M36 262c-12-12-22-30-30-52 14 16 24 32 30 52z" />
+        <path d="M82 320c12-14 24-22 36-24-10 10-22 18-36 24z" opacity=".7" />
+      </g>
+    </svg>
+  )
+}
+
+<style>
+  .decor-paper {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.07;
+  }
+  .decor-blob,
+  .decor-sun,
+  .decor-bamboo {
+    pointer-events: none;
+  }
+  .decor-blob {
+    opacity: 0.5;
+  }
+  .decor-bamboo {
+    opacity: 0.16;
+  }
+  .decor-stroke svg {
+    display: block;
+    width: 100%;
+    height: 22px;
+  }
+</style>

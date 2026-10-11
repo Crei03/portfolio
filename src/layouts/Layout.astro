@@ -1,7 +1,8 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/footer.astro";
-import "@fontsource-variable/onest";
+import Decor from "../components/Decor.astro";
+
 interface Props {
   title: string;
 }
@@ -14,33 +15,174 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Bienvenido a mi portafolio profesional" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="YVpTkYytiA3JUvTNHJHm74H-PKacWSty7R649858md0" />
-    <link rel="icon" type="image/svg+xml" href="/CR.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <!-- Runs before paint: picks the stored theme or the OS preference to avoid a flash. -->
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var theme = null;
+        root.classList.add("js");
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        root.dataset.theme = theme;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    />
   </head>
-  <Header />
   <body>
+    <Decor variant="paper" />
+    <Header />
     <slot />
-    
+    <Footer />
+
+    <script>
+      // Reveal sections on scroll. Content stays visible without JS (.js gate in CSS).
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+
     <style is:global>
       :root {
-        --soft-green: #4ecca3; /* Un verde más suave y menos puro */
-        --dark-bg: #121212;
+        --paper: #f3eadb;
+        --sumi: #2a2320;
+        --sumi-soft: #4a3e36;
+        --muted: #5e5047;
+        --vermilion: #b4432a;
+        --vermilion-dark: #8e3220;
+        --ochre: #d9a577;
+        --peach: #e2b48e;
+        --sand: #c99a5b;
+        /* Filled button keeps #B4432A in both themes: paper text on it is 4.66:1. */
+        --btn: #b4432a;
+        --btn-text: #f3eadb;
+        color-scheme: light;
       }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --paper: #1f1a17;
+          --sumi: #f3eadb;
+          --sumi-soft: #cdbda9;
+          --muted: #b5a594;
+          --vermilion: #d2573a;
+          --vermilion-dark: #e08a6e;
+          --ochre: #7a5232;
+          --peach: #6e4430;
+          --sand: #8c6a42;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --paper: #1f1a17;
+        --sumi: #f3eadb;
+        --sumi-soft: #cdbda9;
+        --muted: #b5a594;
+        --vermilion: #d2573a;
+        --vermilion-dark: #e08a6e;
+        --ochre: #7a5232;
+        --peach: #6e4430;
+        --sand: #8c6a42;
+        color-scheme: dark;
+      }
+
       html {
-        font-family: "Onest Variable", sans-serif;
-        background: linear-gradient(135deg, var(--dark-bg) 0%, #000000 100%);
-        color: white ;
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
       }
       body {
-        display: flex;
-        flex-direction: column;
         min-height: 100vh;
-        overscroll-behavior: none;
+        overflow-x: clip;
+        background: var(--paper);
+        color: var(--sumi);
+        font-family: "Zen Kaku Gothic New", system-ui, sans-serif;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
       }
-      </style>
+      :focus-visible {
+        outline: 2px solid var(--vermilion);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
+      .section-title {
+        font-family: "Shippori Mincho", serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--sumi);
+      }
+      .eyebrow {
+        font-size: 0.8125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: var(--sumi-soft);
+      }
+      .v-kanji {
+        writing-mode: vertical-rl;
+        font-family: "Shippori Mincho", serif;
+        font-size: 1.125rem;
+        letter-spacing: 0.3em;
+        color: var(--vermilion-dark);
+      }
+      .ink-link {
+        color: var(--sumi);
+        text-decoration: underline;
+        text-decoration-color: var(--sand);
+        text-underline-offset: 4px;
+        transition: color 0.2s ease, text-decoration-color 0.2s ease;
+      }
+      .ink-link:hover {
+        color: var(--vermilion-dark);
+        text-decoration-color: currentColor;
+      }
+
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+        .js .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
   </body>
-  <Footer/>
 </html>
