@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="150 70 300 300">
-  <style>path{stroke:#2A2320}@media (prefers-color-scheme:dark){path{stroke:#F3EADB}}</style>
-  <path d="M395 136 A 130 130 0 1 1 340 101" fill="none" stroke-width="28" stroke-linecap="round"/>
+  <style>path,text{stroke:#2A2320;fill:#2A2320}path{fill:none}@media (prefers-color-scheme:dark){path,text{stroke:#F3EADB;fill:#F3EADB}path{fill:none}}</style>
+  <path d="M395 136 A 130 130 0 1 1 340 101" stroke-width="24" stroke-linecap="round"/>
   <circle cx="404" cy="104" r="30" fill="#B4432A"/>
+  <text x="300" y="262" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="120" stroke-width="4">CR</text>
 </svg>
